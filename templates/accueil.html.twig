@@ -1,0 +1,93 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Page Accueil | DevUnblock
+{% endblock %}
+
+{% block body %}
+
+    <section class="container-fluid accueil bgc-img">
+        <div class="p-accueil pt-5">
+            <p>BIENVENUE !</p>
+            <p>Vous êtes bloqué pour développer votre projet?</p>
+        </div>
+        <img src="../images/logo-complet.png" alt="">
+        <p class="p-accueil-solo">A LA SOLUTION !</p>
+    </section>
+
+    <section class="container-fluid marketing p-5 text-center">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row" >
+            <div class="col-sm-12 col-md-4">
+                <div class="form-circle rounded-circle mx-auto my-5">
+                    <img src="../icones/search.svg" alt="">
+                </div>
+                <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+            </div><!-- /.col-lg-4 -->
+
+            <div class="col-sm-12 col-md-4">
+                <div class="form-circle rounded-circle mx-auto my-5">
+                    <img src="../icones/chat-right-dots.svg" alt="">
+                </div>
+                <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+            </div><!-- /.col-lg-4 -->
+
+            <div class="col-sm-12 col-md-4">
+                    <div class="form-circle rounded-circle mx-auto my-5">
+                        <img src="../icones/file-text-fill.svg" alt="">
+                    </div>
+                <p>And lastly this, the third column of representative placeholder content.</p>
+            </div><!-- /.col-lg-4 -->
+
+        </div><!-- /.row -->
+    </section><!-- /.container -->
+
+    <section class="container-fluid accueil-entraide p-5">
+        <h1 class="text-center mb-4">DevUnblock, site d'entraide entre développeur(se)s</h1>
+        <p class="container">Ajouter des articles, pour aider d'autres membres à trouver des solutions. DevUnblock est fait pour échanger des idées.</p>
+    </section>
+
+    <section class="container-fluid accueil-article p-5 ">
+        <h2 class="text-center mb-4">Trois dernières articles ajoutés sur notre site</h2>
+        <div class="row">
+            <div class="col-sm-12 col-md-4 img-article">
+                
+            </div>
+            <div class="col-sm-12 col-md-4 img-article2">
+                
+            </div>
+            <div class="col-sm-12 col-md-4 img-article3">
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid p-5 accueil-avis">
+        <h2 class="text-center mb-4">Avis des utilisateurs</h2>
+
+        <div class="row text-center">
+            <div class="col-sm-12 col-md-4">
+                <div class="block p-3">
+                    <img src="../images/profil1.jpeg" alt="">
+                    <p class="mt-3 ">Praesent suscipit sapien sed orci imperdiet, at placerat libero porta. Proin pharetra at turpis nec mattis. Maecenas rhoncus suscipit dui at pellentesque. Praesent vel nisl a ligula vehicula rhoncus eu vitae ante.</p>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+                <div class="block p-3">
+                    <img src="../images/profil2.jpeg"  alt="">
+                    <p class="mt-3 ">Praesent suscipit sapien sed orci imperdiet, at placerat libero porta. Proin pharetra at turpis nec mattis. Maecenas rhoncus suscipit dui at pellentesque. Praesent vel nisl a ligula vehicula rhoncus eu vitae ante.</p>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+                <div class="block p-3">
+                    <img src="../images/profil3.jpeg" alt="">
+                    <p class="mt-3 ">Praesent suscipit sapien sed orci imperdiet, at placerat libero porta. Proin pharetra at turpis nec mattis. Maecenas rhoncus suscipit dui at pellentesque. Praesent vel nisl a ligula vehicula rhoncus eu vitae ante.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

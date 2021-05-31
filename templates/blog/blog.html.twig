@@ -1,0 +1,29 @@
+{% extends 'base-connect.html.twig' %}
+
+{% block title %}Page Blog | DevUnblock{% endblock %}
+
+{% block body %}
+<section class="container-fluid my-5 blog">
+    <h1 class="display-4 font-italic text-center mb-5 ">Voici tous les articles</h1>
+    <a href="{{ path("blog_create") }}" class="btn btn-color-blue mb-3">Ajouter un article</a>
+    <div class="row mb-2">
+    {% for oneArticle in articles %}
+            <div class="col-sm-12 col-md-6">
+                <div class="card flex-md-row mb-4 box-shadow">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <h2 class="mb-2">
+                            {{ oneArticle.articleTitre }}
+                        </h2>
+                        {# <span class="mb-2 publication d-block">Publié par : {{ oneArticle.abonne.nom }} {{ oneArticle.abonne.prenom }} </span> #}
+                        <div class="mb-3">Écrit le : {{ oneArticle.articleDate | date('d/m/Y') }} à {{ oneArticle.articleDate | date('H:i:s') }}</div>
+                        <p class="card-text mb-auto">{{ oneArticle.articleContenu|striptags|slice(0,100)|raw }}</p>
+                        <a href="{{ path('blog_show', {'id': oneArticle.id}) }}" class="text-decoration-none mt-sm-3 mt-md-0">Lire la suite</a>
+                    </div>
+                        <img src="{{ oneArticle.articleImage }}" class="card-img-right flex-auto d-md-block" alt="Card image cap">
+                </div>
+            </div>
+    {% endfor %}
+        </div>
+</section>
+{% endblock %}
+

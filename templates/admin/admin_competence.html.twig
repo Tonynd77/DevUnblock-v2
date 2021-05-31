@@ -1,0 +1,54 @@
+{% extends "base-admin.html.twig" %}
+
+{% block title %}
+    DevUnblock | Gestion des competences
+{% endblock %}
+
+{% block body %}
+    {% for messages in app.flashes(['success']) %}
+
+        {% for message in messages %}
+            <p class="col-md-4 bg-success text-center p-3 text-white mx-auto rounded mt-4">
+                {{ message }}
+            </p>
+        {% endfor %}
+    
+    {% endfor %}
+
+    <a href="{{ path('admin_new_competence') }}" class="btn btn-primary mt-4">CREATION D'UNE NOUVELLE COMPETENCE</a>
+    <table class="table table-bordered mt-2">
+        <tr>
+            {% for data in colonnes %}
+                <th>{{ data|upper }}</th>
+            {% endfor %}
+                <th>NB MEMBRE</th>
+                <th>MODIF</th>
+                <th>SUPP</th>
+        </tr>
+        
+            {% for data in competences %}
+                <tr>
+                    <td class="text-center">{{data.id}}</td>
+                    <td class="text-center">{{ data.competenceNom }}</td>
+                    {# <td>{{ data.description }}</td> #}
+                    <td class="text-center">{{ data.abonne|length }}</td>
+
+                    <td>
+                        <a href="{{ path('admin_edit_competence', {'id': data.id}) }}" class="btn btn-dark">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                    </td>
+
+                    <td>
+                        <a href="{{ path('admin_remove_competence', {'id': data.id}) }}" class="btn btn-danger" onclick="return(confirm('Voulez-vous réellement supprimer cette catégorie ?'));">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+
+                
+            {% endfor %}
+        
+    </table>
+
+{% endblock %}

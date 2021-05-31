@@ -1,0 +1,54 @@
+{% extends "base-admin.html.twig" %}
+
+{% block title %}
+    BACKOFFICE DevUnblog | Gestion des membres
+{% endblock %}
+
+{% block body %}
+    <h1 class="display-4 font-italic text-center pt-3">Gestion des membres</h1>
+    {% for message in app.flashes('success') %}
+        
+        <p class="col-md-4 bg-success text-center p-3 text-white mx-auto rounded mt-4">
+            {{ message }}
+        </p>
+
+    {% endfor %}
+    <table class="table table-bordered mt-4">
+        <tr>
+            {% for data in colonnes %}
+
+            {% if data != 'password' %}
+
+                <th>{{ data|upper }}</th>
+
+            {% endif %}
+            {% endfor %}
+            <th>SUP</th>
+        </tr>
+
+        {% for data in membre %}
+                <tr class="text-center">
+                    <td>{{data.id}}</td>
+                    <td>{{ data.abonneEmail }}</td>
+                    {% if data.roles[0] == 'ROLE_ADMIN' %}
+                        <td class="bg-danger text-white">ADMIN</td>
+                    {% else %}
+                    <td>MEMBRE</td>
+                    <td>{{ data.abonneNom }}</td>
+                    <td>{{ data.abonnePrenom }}</td>
+                    <td>{{ data.abonneImage }}</td>
+                    <td>{{ data.abonneTel }}</td>
+                    <td>{{ data.abonneRegion }}</td>
+                    <td>{{ data.abonneDescription|striptags|slice(0,75) }} ...</td>
+                    <td>{{ data.abonneUsername }}</td>
+                    <td>
+                        <a href="{{ path('admin_membre_remove', {'id': data.id}) }}" class="btn btn-danger" onclick="return(confirm('Voulez-vous réellement supprimer ce membre ?'));">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                    
+                    {% endif %}
+                </tr>
+            {% endfor %}
+    </table>
+{% endblock %}

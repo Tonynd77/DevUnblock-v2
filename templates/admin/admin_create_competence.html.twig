@@ -1,0 +1,30 @@
+{% extends "base-admin.html.twig" %}
+
+{% block title %}
+    {% if editMode %}
+        Modification d'une compétence
+    {% else %}
+        Création d'une compétence
+    {% endif %}
+{% endblock %}
+
+
+{% block body %}
+    <h1 class="display-4 fst-italic text-center my-5">
+    {% if editMode %}
+        Modification de la compétence
+    {% else %}
+        Nouvelle compétences
+    {% endif %}
+    </h1>
+    
+
+    {{ form_start(formCompetence, {'attr': {'class': 'col-md-5 mx-auto'}}) }}
+
+        {{ form_row(formCompetence.competence_nom, {'attr': {'pattern': false}, 'required': false }) }}
+
+        <button type="submit" class="btn btn-dark mt-2">Enregistrer</button>
+
+    {{ form_end(formCompetence) }}
+
+{% endblock %}

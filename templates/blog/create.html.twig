@@ -1,0 +1,33 @@
+{% extends "base-connect.html.twig" %}
+
+{% block title %}
+    {% if editMode %}
+        Modification de l'article
+    {% else %}
+        Ajouter un article
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <h1 class="display-4 font-italic text-center mt-5">
+    {% if editMode %}
+        Modifier l'article
+    {% else %}
+        Création d'un Article
+    {% endif %}
+    </h1>
+    {{ form_start(formArticle, {'attr': {'class': 'col-sm-10 col-md-7 mx-auto mt-5'}}) }}
+        {{ form_row(formArticle.article_titre, { 'attr': { 'placeholder': "Titre de l'article" } }) }}
+        {{ form_row(formArticle.article_contenu, { 'attr': { 'placeholder': "Contenu de l'article" } }) }}
+        {{ form_row(formArticle.article_image, { 'attr': { 'placeholder': "URL de l'image" } }) }}
+        {{ form_row(formArticle.article_valide, { 'attr': { 'placeholder': "Validé le formulaire" } }) }}
+        <button type="submit" class="btn btn-color-site mt-2">
+            {% if editMode %}
+                Enregistrer les modifications
+            {% else %}
+                Ajouter l'article
+            {% endif %}
+        </button>
+    {{ form_end(formArticle) }}
+    
+{% endblock %}
