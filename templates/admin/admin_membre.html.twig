@@ -31,7 +31,19 @@
                     <td>{{data.id}}</td>
                     <td>{{ data.abonneEmail }}</td>
                     {% if data.roles[0] == 'ROLE_ADMIN' %}
-                        <td class="bg-danger text-white">ADMIN</td>
+                        <td class="bg-danger text-white">ADMIN</td> 
+                        <td>{{ data.abonneNom }}</td>
+                        <td>{{ data.abonnePrenom }}</td>
+                        <td>{{ data.abonneImage }}</td>
+                        <td>{{ data.abonneTel }}</td>
+                        <td>{{ data.abonneRegion }}</td>
+                        <td>{{ data.abonneDescription|striptags|slice(0,75) }} ...</td>
+                        <td>{{ data.abonneUsername }}</td>
+                        <td>
+                            <a href="{{ path('admin_membre_remove', {'id': data.id}) }}" class="btn btn-danger" onclick="return(confirm('Voulez-vous réellement supprimer ce membre ?'));">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
                     {% else %}
                     <td>MEMBRE</td>
                     <td>{{ data.abonneNom }}</td>
