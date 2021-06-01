@@ -1,0 +1,22 @@
+{% extends "base-connect.html.twig" %}
+
+{% block title %}
+    DevUnblock | Modifier Profil
+{% endblock %}
+
+{% block body %}
+<h1 class="display-4 font-italic text-center my-3">Modifier profil</h1>
+    {{form_start(form, {'attr': {'class': 'col-md-6 mx-auto py-5'}}) }}
+        {{ form_row(form.abonne_image) }}
+        {{ form_row(form.abonne_nom) }}
+        {{ form_row(form.abonne_prenom) }}
+        {{ form_row(form.abonne_username) }}        
+        {{ form_row(form.abonne_email) }}
+        {{ form_row(form.password) }}
+        {{ form_row(form.confirm_password) }}
+        {{ form_row(form.competences) }}
+        {{ form_row(form.abonne_tel) }}
+        {{ form_row(form.abonne_region) }}
+        {{ form_row(form.abonne_description) }}
+    {{form_end(form)}}
+{% endblock %}

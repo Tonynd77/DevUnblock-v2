@@ -86,7 +86,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/competences", name="admin_competences")
      */
-    public function adminCategory(EntityManagerInterface $manager, CompetenceRepository $repoCompetence): Response
+    public function adminCompetence(EntityManagerInterface $manager, CompetenceRepository $repoCompetence): Response
     {
         $colonnes = $manager->getClassMetadata(Competence::class)->getFieldNames();
         dump($colonnes);

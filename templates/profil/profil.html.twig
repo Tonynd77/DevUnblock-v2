@@ -3,3 +3,126 @@
 {% block title %}
     DevUnblock | Page Profil
 {% endblock %}
+
+{% block body %}
+    
+
+    <div class="container emp-profile pt-5">
+    {# {{dump(app.user)}} #}
+        {% for message in app.flashes('success') %}
+        
+        <p class="col-md-4 bg-success text-center p-3 text-white mx-auto rounded mt-4">
+            {{ message }}
+        </p>
+
+        {% endfor %}
+        
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                            <div class="file btn btn-primary">
+                                Change Photo
+                                <input type="file" name="file"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                        {{ app.user.abonneUsername|upper }}
+                                    </h5>
+                                    <h6>
+                                        {# Mes compétences : {{ app.user.competenceNom }} #}
+                                    </h6>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">A propos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Mon histoire</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="{{ path('profil_edit') }}" class="btn btn-secondary">Modifier</a>
+                    </div>
+                </div>
+                <div class="row p-5">
+                    <div class="col-md-12">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Pseudo</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ app.user.abonneUsername }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Nom</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ app.user.abonneNom }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Prenom</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ app.user.abonnePrenom }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ app.user.abonneEmail }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Telephone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ app.user.abonneTel }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Region</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ app.user.abonneRegion }}</p>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Competences</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                {# <p>{{ app.user.competences }}</p> #}
+                                            </div>
+                                        </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Description</label><br/>
+                                        <p>{{ app.user.abonneDescription }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+
+{% endblock %}
