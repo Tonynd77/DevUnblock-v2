@@ -33,6 +33,9 @@ class User implements UserInterface
      */
     private $roles = [];
 
+
+    
+ 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
@@ -348,6 +351,8 @@ class User implements UserInterface
     {
         return $this->abonne_username;
     }
+
+
 
 }
 
