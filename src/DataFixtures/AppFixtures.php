@@ -25,7 +25,7 @@ class AppFixtures extends Fixture
         $faker = \Faker\Factory::create('fr_FR');
         $abonnes = [];
 
-        for ($i = 0; $i < 10; $i++)  {
+        for ($i = 0; $i < 50; $i++)  {
         //Ajout Users
 
             $abonne  = new User;
@@ -81,45 +81,40 @@ class AppFixtures extends Fixture
                 $manager->persist($article);
             }
             $abonnes[$i] = $abonne;
-        
-     
-
-            $manager->flush();
-        
-
-        //Ajout Compétences
-
-        /* $competence = new Competence();
-        $competence->setCompetenceNom("PHP");
-        $competence->addAbonne($abonnes[30]);
-        $competence->addAbonne($abonnes[10]);
-        $competence->addAbonne($abonnes[16]);
-        $manager->persist($competence);
-
-        $competence = new Competence();
-        $competence->setCompetenceNom("JavaScript");
-        $competence->addAbonne($abonnes[30]);
-        $competence->addAbonne($abonnes[10]);
-        $competence->addAbonne($abonnes[40]);
-        $manager->persist($competence);
-
-        $competence = new Competence();
-        $competence->setCompetenceNom("Java");
-        $competence->addAbonne($abonnes[5]);
-        $competence->addAbonne($abonnes[21]);
-        $competence->addAbonne($abonnes[35]);
-        $competence->addAbonne($abonnes[30]);
-        $competence->addAbonne($abonnes[10]);
-        $manager->persist($competence);
-
-        $competence = new Competence();
-        $competence->setCompetenceNom("HTML/CSS");
-        for ($i = 0; $i < count($abonnes); $i++) {
-            $competence->addAbonne($abonnes[$i]);
-        }
-        $manager->persist($competence); */
-
-        
+            ;;;
     } 
+     //Ajout Compétences
+
+     $competence = new Competence();
+     $competence->setCompetenceNom("PHP");
+     $competence->addAbonne($abonnes[30]);
+     $competence->addAbonne($abonnes[10]);
+     $competence->addAbonne($abonnes[16]);
+     $manager->persist($competence);
+
+     $competence = new Competence();
+     $competence->setCompetenceNom("JavaScript");
+     $competence->addAbonne($abonnes[30]);
+     $competence->addAbonne($abonnes[10]);
+     $competence->addAbonne($abonnes[40]);
+     $manager->persist($competence);
+
+     $competence = new Competence();
+     $competence->setCompetenceNom("Java");
+     $competence->addAbonne($abonnes[5]);
+     $competence->addAbonne($abonnes[21]);
+     $competence->addAbonne($abonnes[35]);
+     $competence->addAbonne($abonnes[30]);
+     $competence->addAbonne($abonnes[10]);
+     $manager->persist($competence);
+
+     $competence = new Competence();
+     $competence->setCompetenceNom("HTML/CSS");
+     for ($i = 0; $i < count($abonnes); $i++) {
+         $competence->addAbonne($abonnes[$i]);
+     }
+     $manager->persist($competence);
+
+     $manager->flush();
 }
 }
