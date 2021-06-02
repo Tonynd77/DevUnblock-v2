@@ -1,0 +1,63 @@
+{% extends 'base-connect.html.twig' %}
+{% block title %}
+    Chat | DevUnblock
+{% endblock %}
+{% block body %}
+  <div id="mercure-content-receiver"></div>
+  <div class="col-md-6">
+      <form id="mercure-message-form" action="{{ path('sendMessage') }}" method="post">
+          {# <label for="mercure-message-input">Message:</label> #}
+          <br>
+          <input type="text" id="mercure-message-input" name="message" class="form-control"/>
+          <br>
+          <button id="mercure-message-btn" style="float:right" value="Envoyer " class="btn btn-color-blue">Envoyer &nbsp<i class="bi bi-telegram"></i></button>
+      </form>
+      {% set userName = app.user.abonneUsername %}  
+  </div> 
+{% endblock %}
+
+{% block javascripts %}
+  <script type="text/javascript">
+
+    var userName        = {{ app.user.abonneUsername|json_encode()|raw }}
+    const _receiver     = document.getElementById('mercure-content-receiver');
+    const _messageInput = document.getElementById('mercure-message-input');
+    const _sendForm     = document.getElementById('mercure-message-form');
+
+    const sendMessage = (message, user = 'ChatBot') => {
+      if (message === '') {
+        return;
+      }
+
+      fetch(_sendForm.action, {
+        method: _sendForm.method,
+        body: 'message=' + message + '&user=' + user,
+        headers: new Headers({
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        })
+      }).then(() => {
+        _messageInput.value = '';
+      });
+    };
+
+    _sendForm.onsubmit = (evt) => {
+      sendMessage(_messageInput.value, userName);
+
+      evt.preventDefault();
+      return false;
+    };
+
+    const url = new URL('http://localhost:3000/.well-known/mercure');
+    url.searchParams.append('topic', 'example.com');
+    const eventSource = new EventSource(url, { withCredentials: true });
+    
+    eventSource.onmessage = (evt) => {
+      const data = JSON.parse(evt.data);
+      if (!data.message || !data.user) {
+      return;
+    }
+        _receiver.insertAdjacentHTML('beforeend', `
+        <div class="message">${data.user}: ${data.message}</div>`);
+    };
+  </script>
+{% endblock %}

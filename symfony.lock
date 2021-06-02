@@ -115,6 +115,9 @@
     "laminas/laminas-zendframework-bridge": {
         "version": "1.2.0"
     },
+    "lcobucci/jwt": {
+        "version": "4.1.4"
+    },
     "monolog/monolog": {
         "version": "2.2.0"
     },
@@ -156,6 +159,9 @@
         "files": [
             "./config/packages/sensio_framework_extra.yaml"
         ]
+    },
+    "symfony/amqp-messenger": {
+        "version": "v5.2.10"
     },
     "symfony/asset": {
         "version": "v5.2.7"
@@ -210,6 +216,9 @@
     },
     "symfony/doctrine-bridge": {
         "version": "v5.2.9"
+    },
+    "symfony/doctrine-messenger": {
+        "version": "v5.2.10"
     },
     "symfony/dom-crawler": {
         "version": "v5.2.9"
@@ -306,6 +315,33 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
+    "symfony/mercure": {
+        "version": "v0.5.3"
+    },
+    "symfony/mercure-bundle": {
+        "version": "0.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "0.3",
+            "ref": "d1cdff3ae53bf6a5cbfb088c82f26032bdc14cc3"
+        },
+        "files": [
+            "config/packages/mercure.yaml"
+        ]
+    },
+    "symfony/messenger": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "e9a414b113ceadbf4e52abe37bf8f1b443f06ccb"
+        },
+        "files": [
+            "config/packages/messenger.yaml"
+        ]
+    },
     "symfony/mime": {
         "version": "v5.2.9"
     },
@@ -381,6 +417,9 @@
     "symfony/polyfill-php80": {
         "version": "v1.23.0"
     },
+    "symfony/polyfill-php81": {
+        "version": "v1.23.0"
+    },
     "symfony/process": {
         "version": "v5.2.7"
     },
@@ -395,6 +434,9 @@
     },
     "symfony/proxy-manager-bridge": {
         "version": "v5.2.9"
+    },
+    "symfony/redis-messenger": {
+        "version": "v5.2.10"
     },
     "symfony/routing": {
         "version": "5.1",
