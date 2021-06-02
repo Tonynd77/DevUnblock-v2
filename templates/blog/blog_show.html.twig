@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-    <section class="container-fluid oneArticle m-5" style="min-height=100vh">
+    <section class="container mx-auto oneArticle m-3 py-5" style="min-height=100vh">
         <article class="row">
             <div class="col-sm-12 col-md-8">
                 <h2 class="display-4 font-italic mb-3">{{ article.articleTitre }}</h2>
@@ -14,8 +14,8 @@
                 <p class="mb-5">{{ article.articleContenu|striptags|raw }}</p>
                 <a href="{{ path("blog") }}" class="text-decoration-none">Retour aux articles</a>
             </div>
-            <div <div class="col-sm-12 col-md-4 block-img">
-                <img src="{{ article.articleImage }}" class="col-sm-10 mt-sm- mt-md-0" alt="">
+            <div <div class="col-sm-12 col-md-4 mt-5 mt-md-0">
+                <img src="{{ article.articleImage }}" class="col-sm-10" alt="">
             </div>
         </article>
     </section>

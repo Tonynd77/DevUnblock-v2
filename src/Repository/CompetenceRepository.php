@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+use App\Dto\filter;
 use App\Entity\Competence;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Competence|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +18,19 @@ class CompetenceRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Competence::class);
+    }
+
+    public function findSearchAll(filter $filter)
+    {
+        $query = $this->createQueryBuilder('c');
+        if(!empty($filter->filterCompetences))
+        {
+            $query->Where("c.id IN (:filterCompetences)")
+                ->setParameter('filterCompetences', $filter->filterCompetences)
+            ;
+        }
+        
+        return $query->getQuery()->getResult();
     }
 
     // /**

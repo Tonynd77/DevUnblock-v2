@@ -19,8 +19,8 @@ class FilterCompetencesType extends AbstractType
             ->add('filterCompetences', EntityType::class, [
                 'class' => Competence::class,
                 'choice_label' => 'competence_nom',
+                'multiple'     => true, 
             ])
-            ->add('Submit', SubmitType::class)
             
             // ->add('abonne')
         ;

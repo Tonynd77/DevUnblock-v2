@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Dto\filter;
+use App\Entity\Competence;
 use App\Entity\User;
 use App\Form\FilterCompetencesType;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,13 +22,16 @@ class FilterCompetencesController extends AbstractController
         $form = $this->createForm(FilterCompetencesType::class, $search);
 
         $form->handleRequest($request);
+        dump($request);
 
-        $result = $this->getDoctrine()->getRepository(User::class)/*->findBy([], ["id" => "DESC"])*/;
+        $result = $this->getDoctrine()->getRepository(User::class)->findAll();
 
         if($form->isSubmitted())
         {
-            dd($result);
+            // dd($result);
             $result = $this->getDoctrine()->getRepository(User::class)->findSearchAll($search);
+            // dd($search);
+            dd($result);
         }
 
         return $this->render('filter_competences/filter.html.twig', [

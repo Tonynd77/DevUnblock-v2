@@ -10,53 +10,43 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
-class RegistrationType extends AbstractType
+class ModifierProfilType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('abonne_email', TextType::class, [
-                'label' => 'Email*'
+                'label' => 'Email'
             ])
-            ->add('password', PasswordType::class, [
-                'label' => 'Mot de Passe*'
-            ])
-            ->add('confirm_password', PasswordType::class)
+            // ->add('roles')
+            // ->add('password')
             ->add('abonne_nom', TextType::class, [
-                'label' => 'Nom*'
+                'label' => 'Nom'
             ])
             ->add('abonne_prenom', TextType::class, [
-                'label' => 'Prenom*'
+                'label' => 'Prenom'
             ])
-            ->add('abonne_image', FileType::class, [
-                'label' => "Ajouter une image"
+            ->add('abonne_image', TextType::class, [
+                'label' => "Image"
             ])
             ->add('abonne_tel', TextType::class, [
-                'label' => 'Numero de tel',
-                'required'=>false
+                'label' => 'Tel'
             ])
             ->add('abonne_region', TextType::class, [
-                'label' => 'Région',
-                'required'=>false
+                'label' => 'Region'
             ])
             ->add('abonne_description', TextType::class, [
-                'label' => 'Description',
-                'required'=>false
+                'label' => 'Description'
             ])
             ->add('abonne_username', TextType::class, [
-                'label' => 'Pseudo*'
+                'label' => 'Pseudo'
             ])
             ->add('competences', EntityType::class, [
                 'class' => Competence::class,
                 'choice_label' => 'competence_nom',
                 'multiple' => true,
-                'label' => 'Vos compétences* (Choissisez une ou plusieurs compétences)'
-            ])
-            ->add('submit', SubmitType::class, [
-                'label' => 'Inscription'
+                'label' => 'Vos compétences'
             ])
         ;
     }

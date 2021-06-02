@@ -1,0 +1,25 @@
+{% extends "base-connect.html.twig" %}
+
+{% block title %}
+    DevUnblock | Profil du devellopeur
+{% endblock %}
+
+{% block body %}
+    <section class="profil-user">
+        <div class="container-profil shadow">
+            <h1>{{ user.abonneUsername }}</h1>
+            <img class="image-user" src="{{ asset('uploads/images/' ~ user.abonneImage) }}" alt="">
+        </div>
+
+        <div class="info-user">
+        <h2 class="text-center">INFORMATIONS DU PROFIL</h2>
+        <div class="row">
+            <div class="col-md-6">Nom</div>
+            <div class="col-md-6">Nom</div>
+        </div>
+        <h2>COMPÉTENCES</h2>
+
+        </div>
+        
+    </section>
+{% endblock %}
