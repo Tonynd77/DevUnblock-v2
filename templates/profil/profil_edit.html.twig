@@ -7,16 +7,15 @@
 {% block body %}
 <h1 class="display-4 font-italic text-center my-3">Modifier profil</h1>
     {{form_start(form, {'attr': {'class': 'col-md-6 mx-auto py-5'}}) }}
-        {{ form_row(form.abonne_image) }}
-        {{ form_row(form.abonne_nom) }}
-        {{ form_row(form.abonne_prenom) }}
-        {{ form_row(form.abonne_username) }}        
-        {{ form_row(form.abonne_email) }}
-        {{ form_row(form.password) }}
-        {{ form_row(form.confirm_password) }}
-        {{ form_row(form.competences) }}
-        {{ form_row(form.abonne_tel) }}
-        {{ form_row(form.abonne_region) }}
-        {{ form_row(form.abonne_description) }}
+        {{ form_row(form.abonne_image, {'attr': {'pattern': false}, 'required': false }) }}
+        {{ form_row(form.abonne_nom, {'attr': {'pattern': false}, 'required': false }) }}
+        {{ form_row(form.abonne_prenom, {'attr': {'pattern': false}, 'required': false }) }}
+        {{ form_row(form.abonne_username, {'attr': {'pattern': false}, 'required': false }) }}        
+        {{ form_row(form.abonne_email, {'attr': {'pattern': false}, 'required': false }) }}
+        {{ form_row(form.abonne_tel, {'attr': {'pattern': false}, 'required': false }) }}
+        {{ form_row(form.abonne_region, {'attr': {'pattern': false}, 'required': false }) }}
+        {{ form_row(form.abonne_description, {'attr': {'pattern': false}, 'required': false }) }}
+        {{ form_row(form.competences, {'attr': {'pattern': false}, 'required': false }) }}
+        <button type="submit" class="btn btn-color-blue">Modifier</button>
     {{form_end(form)}}
 {% endblock %}

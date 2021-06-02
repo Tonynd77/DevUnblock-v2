@@ -52,8 +52,8 @@ class BlogController extends AbstractController
                 
         $form = $this->createForm(ArticleType::class, $article);
         
-                $form->handleRequest($request);
-                dump($article);
+        $form->handleRequest($request);
+        dump($article);
 
                 if($form->isSubmitted() && $form->isValid())
                 {
@@ -61,6 +61,8 @@ class BlogController extends AbstractController
                     {
                         $article->setArticleDate(new \DateTime());
                     }
+
+                    
 
                     $manager->persist($article);
                     $manager->flush();

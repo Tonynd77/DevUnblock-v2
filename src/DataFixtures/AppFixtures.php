@@ -85,7 +85,7 @@ class AppFixtures extends Fixture
 
         //Ajout Compétences
 
-        $competence = new Competence();
+        /* $competence = new Competence();
         $competence->setCompetenceNom("PHP");
         $competence->addAbonne($abonnes[30]);
         $competence->addAbonne($abonnes[10]);
@@ -113,7 +113,7 @@ class AppFixtures extends Fixture
         for ($i = 0; $i < count($abonnes); $i++) {
             $competence->addAbonne($abonnes[$i]);
         }
-        $manager->persist($competence);
+        $manager->persist($competence); */
 
         $manager->flush();
     }
