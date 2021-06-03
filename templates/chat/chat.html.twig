@@ -2,15 +2,23 @@
 {% block title %}
     Chat | DevUnblock
 {% endblock %}
+
 {% block body %}
-  <div id="mercure-content-receiver"></div>
-  <div class="col-md-6">
-      <form id="mercure-message-form" action="{{ path('sendMessage') }}" method="post">
+
+<br>
+
+  <h1 class="title-chat display-4 font-italic mb-5 text-center">Chat Global des Utilisateurs</h1>
+
+<br>
+<div class="chat-content">
+  <div id="mercure-content-receiver"  ></div>
+      <form id="mercure-message-form" class="pb-5" action="{{ path('sendMessage') }}" method="post">
           {# <label for="mercure-message-input">Message:</label> #}
           <br>
-          <input type="text" id="mercure-message-input" name="message" class="form-control"/>
           <br>
-          <button id="mercure-message-btn" style="float:right" value="Envoyer " class="btn btn-color-blue">Envoyer &nbsp<i class="bi bi-telegram"></i></button>
+          <input type="text" placeholder="Tapez ici votre texte" id="mercure-message-input" name="message" class="form-control"/>
+          <br>
+          <button id="mercure-message-btn" value="Envoyer " class="btn btn-color-blue">Envoyer &nbsp<i class="bi bi-telegram"></i></button>
       </form>
       {% set userName = app.user.abonneUsername %}  
   </div> 
@@ -19,7 +27,7 @@
 {% block javascripts %}
   <script type="text/javascript">
 
-    var userName        = {{ app.user.abonneUsername|json_encode()|raw }}
+    var userName        = {{ app.user.abonneUsername|json_encode()|raw }};
     const _receiver     = document.getElementById('mercure-content-receiver');
     const _messageInput = document.getElementById('mercure-message-input');
     const _sendForm     = document.getElementById('mercure-message-form');
@@ -54,10 +62,12 @@
     eventSource.onmessage = (evt) => {
       const data = JSON.parse(evt.data);
       if (!data.message || !data.user) {
-      return;
-    }
-        _receiver.insertAdjacentHTML('beforeend', `
-        <div class="message">${data.user}: ${data.message}</div>`);
+       return;
+      }
+   
+      _receiver.insertAdjacentHTML('beforeend', `
+        <div class="message" id="userA">${data.user}: ${data.message}</div>`);
+       
     };
   </script>
 {% endblock %}

@@ -307,6 +307,57 @@ nav a img{
 /* FIN SECTION PROFIL USER */
 
 
+/* DÉBUT CHAT */
+#mercure-content-receiver {
+    height: 400px;
+    width: 800px;
+    border: 2px solid #006699;
+    border-radius: 5px;
+    padding: 10px;
+/*     box-shadow: 12px 12px 2px 1px rgba(0, 92, 153, 0.829);*/
+    box-shadow: 30px -16px #006699;
+}
+
+
+#mercure-message-input {
+    /* float:left */
+    width: 800px; 
+    border: 2px solid #006699;
+    box-shadow: -15px 11px #006699;
+}
+
+#mercure-message-btn {
+    margin-left: 690px;
+}
+
+
+
+.chat-content {
+    position: relative;
+    left: 25%;
+}
+
+#userB{
+    border: solid 1px transparent!important;
+    padding: 5px 10px;
+    min-width: min-content;
+    max-width: max-content;
+    border-radius: 5%;
+    background-color: red;
+}
+#userA{
+    border: solid 1px transparent!important;
+    padding: 5px 10px;
+    min-width: min-content;
+    max-width: max-content;
+    border-radius: 5%;
+    background-color: rgba(70, 245, 70, 0.726);
+}
+
+
+/* FIN CHAT */
+
+
 /* FIN BODY */
 
 footer .row a:hover {
@@ -352,3 +403,5 @@ footer{
 @media (min-width: 768px) {  }
 @media (min-width: 992px) {  }
 @media (min-width: 1200px) {  }
+
+
